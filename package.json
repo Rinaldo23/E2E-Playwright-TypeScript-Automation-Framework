@@ -1,0 +1,23 @@
+{
+  "name": "e2e-playwright-typescript-automation-framework",
+  "version": "1.0.0",
+  "description": "\"# E2E-Playwright-TypeScript-Automation-Framework\"",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rinaldo23/E2E-Playwright-TypeScript-Automation-Framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Rinaldo23/E2E-Playwright-TypeScript-Automation-Framework/issues"
+  },
+  "homepage": "https://github.com/Rinaldo23/E2E-Playwright-TypeScript-Automation-Framework#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.1.0"
+  }
+}
