@@ -16,13 +16,13 @@ export default class LoginPage {
     }
 
     async login(email: string, password: string) {
-        this.emailTxtBox.fill(email);
-        this.passwordTxtBox.fill(password);
-        this.loginBtn.click();
+        await this.emailTxtBox.fill(email);
+        await this.passwordTxtBox.fill(password);
+        await this.loginBtn.click();
     }
 
     async isLoginSuccessful() {
-        return this.myAccountTxt.isVisible();
+        return await this.myAccountTxt.isVisible();
     }
 
 }
