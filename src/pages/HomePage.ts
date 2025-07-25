@@ -15,12 +15,12 @@ export default class HomePage {
     }
 
     async navigateToLoginModule() {
-        await this.myAccountBtn.click();
+        await this.myAccountBtn.hover();
         await this.loginBtn.click();
     }
 
     async navigateToRegisterModule() {
-        await this.myAccountBtn.click();
+        await this.myAccountBtn.hover();
         await this.registerBtn.click();
     }
 
