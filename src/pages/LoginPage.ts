@@ -9,6 +9,7 @@ export default class LoginPage {
     private readonly myAccountTxt: Locator;
 
     constructor(page: Page) {
+        this.page = page;
         this.emailTxtBox = this.page.getByRole('textbox', { name: 'E-Mail Address' });
         this.passwordTxtBox = this.page.getByRole('textbox', { name: 'Password' });
         this.loginBtn = this.page.getByRole('button', { name: 'Login' });
