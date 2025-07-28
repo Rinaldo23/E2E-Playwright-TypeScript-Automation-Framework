@@ -1,15 +1,15 @@
 import { Locator, Page } from '@playwright/test';
+import BasePage from './BasePage';
 
-export default class LoginPage {
+export default class LoginPage extends BasePage {
 
-    private readonly page: Page;
     private readonly emailTxtBox: Locator;
     private readonly passwordTxtBox: Locator;
     private readonly loginBtn: Locator;
     private readonly myAccountTxt: Locator;
 
     constructor(page: Page) {
-        this.page = page;
+        super(page);
         this.emailTxtBox = this.page.getByRole('textbox', { name: 'E-Mail Address' });
         this.passwordTxtBox = this.page.getByRole('textbox', { name: 'Password' });
         this.loginBtn = this.page.getByRole('button', { name: 'Login' });

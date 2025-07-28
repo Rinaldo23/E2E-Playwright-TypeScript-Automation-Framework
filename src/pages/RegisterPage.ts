@@ -1,8 +1,8 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
+import BasePage from "./BasePage";
 
-export default class RegisterPage {
+export default class RegisterPage extends BasePage {
 
-    private readonly page: Page;
     private readonly headingTxt: Locator;
     private readonly firstNameTxtBox: Locator;
     private readonly lastNameTxtBox: Locator;
@@ -17,7 +17,7 @@ export default class RegisterPage {
     private readonly successTxt: Locator;
 
     constructor(page: Page) {
-        this.page = page;
+        super(page);
         this.headingTxt = this.page.getByRole('heading', { name: 'Register Account' });
         this.firstNameTxtBox = this.page.getByRole('textbox', { name: 'First Name*' });
         this.lastNameTxtBox = this.page.getByRole('textbox', { name: 'Last Name*' });
@@ -33,6 +33,8 @@ export default class RegisterPage {
     }
 
     async enterFirstName(firstName: string) {
+        await this.page.waitForLoadState('domcontentloaded');
+        expect(await this.headingTxt.isVisible()).toBeTruthy();
         await this.firstNameTxtBox.fill(firstName);
     }
 
