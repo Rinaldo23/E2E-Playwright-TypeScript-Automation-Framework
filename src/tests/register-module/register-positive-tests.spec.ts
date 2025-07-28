@@ -5,9 +5,6 @@ test.describe("Register Scenario", {}, async () => {
 
     test("Register a new user with valid credentials", async ({ page, homePage, registerPage }) => {
 
-        await page.goto("https://ecommerce-playground.lambdatest.io/index.php?route=common/home");
-        await expect(page).toHaveTitle("Your Store");
-
         await homePage.navigateToRegisterModule();
         await registerPage.enterFirstName(faker.person.firstName());
         await registerPage.enterLastName(faker.person.lastName());
