@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "\"# E2E-Playwright-TypeScript-Automation-Framework\"",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test_dev": "cross-env ENV_NAME=dev npx playwright test",
+    "test_stg": "cross-env ENV_NAME=stg npx playwright test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rinaldo23/E2E-Playwright-TypeScript-Automation-Framework.git"
@@ -21,6 +24,8 @@
     "@types/node": "^24.1.0"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.9.0"
+    "@faker-js/faker": "^9.9.0",
+    "cross-env": "^10.0.0",
+    "dotenv": "^17.2.1"
   }
 }
