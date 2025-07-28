@@ -7,7 +7,7 @@ test.describe("Login Scenario", {}, async () => {
         await homePage.navigateToLoginModule();
         await loginPage.login("virat.kolhi@gmail.com", "Test@12345");
 
-        await page.waitForURL("**/account");
+        expect(await loginPage.verifyPageNavigation("account")).toBeTruthy();
         expect(await loginPage.isLoginSuccessful()).toBeTruthy();
     })
 
