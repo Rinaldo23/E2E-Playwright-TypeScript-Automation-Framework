@@ -16,7 +16,7 @@ test.describe("Register Scenario", {}, async () => {
         await registerPage.acceptPrivacyPolicy();
         await registerPage.submit();
 
-        await page.waitForURL("**/success");
+        expect(await registerPage.verifyPageNavigation("success")).toBeTruthy();
         expect(await registerPage.isRegistrationSuccessful()).toBeTruthy();
     })
 
