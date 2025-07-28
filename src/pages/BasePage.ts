@@ -14,4 +14,9 @@ export default class BasePage {
         await expect(this.page).toHaveTitle("Your Store");
     }
 
+    async verifyPageNavigation(urlFragment: string) {
+        await this.page.waitForURL(`**/${urlFragment}`);
+        const currentUrl = this.page.url();
+        return currentUrl.includes(urlFragment);
+    }
 }
