@@ -32,45 +32,45 @@ export default class RegisterPage extends BasePage {
         this.successTxt = this.page.getByRole('heading', { name: ' Your Account Has Been' });
     }
 
-    async enterFirstName(firstName: string) {
+    async enterFirstName(firstName: string): Promise<void> {
         await this.page.waitForLoadState('domcontentloaded');
         expect(await this.headingTxt.isVisible()).toBeTruthy();
         await this.firstNameTxtBox.fill(firstName);
     }
 
-    async enterLastName(lastName: string) {
+    async enterLastName(lastName: string): Promise<void> {
         await this.lastNameTxtBox.fill(lastName);
     }
 
-    async enterEmail(email: string) {
+    async enterEmail(email: string): Promise<void> {
         await this.emailTxtBox.fill(email);
     }
 
-    async enterMobileNumber(telephone: string) {
+    async enterMobileNumber(telephone: string): Promise<void> {
         await this.telephoneTxtBox.fill(telephone);
     }
 
-    async enterPassword(password: string) {
+    async enterPassword(password: string): Promise<void> {
         await this.passwordTxtBox.fill(password);
     }
 
-    async enterConfirmPassword(confirmPassword: string) {
+    async enterConfirmPassword(confirmPassword: string): Promise<void> {
         await this.confirmPasswordTxtBox.fill(confirmPassword);
     }
 
-    async subscribeToNewsLetter(subsribe: boolean) {
+    async subscribeToNewsLetter(subsribe: boolean): Promise<void> {
         subsribe ? this.subscribeBtn.click() : this.unSubscribeBtn.click();
     }
 
-    async acceptPrivacyPolicy() {
+    async acceptPrivacyPolicy(): Promise<void> {
         await this.policyChkBox.check();
     }
 
-    async submit() {
+    async submit(): Promise<void> {
         await this.continueBtn.click();
     }
 
-    async isRegistrationSuccessful() {
+    async isRegistrationSuccessful(): Promise<boolean> {
         return await this.successTxt.isVisible();
     }
 

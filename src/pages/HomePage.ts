@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import { expect, Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
 
 export default class HomePage extends BasePage {
@@ -14,16 +14,21 @@ export default class HomePage extends BasePage {
         this.registerBtn = this.page.getByRole('link', { name: 'Register' });
     }
 
-    async navigateToLoginModule() {
+    async navigateToLoginModule(): Promise<void> {
         await this.navigateToApplication();
         await this.myAccountBtn.hover();
         await this.loginBtn.click();
     }
 
-    async navigateToRegisterModule() {
+    async navigateToRegisterModule(): Promise<void> {
         await this.navigateToApplication();
         await this.myAccountBtn.hover();
         await this.registerBtn.click();
+    }
+
+    async navigateToHomeModule(): Promise<void> {
+        await this.navigateToApplication();
+        await this.verifyPageNavigation("home");
     }
 
 }
