@@ -16,13 +16,13 @@ export default class LoginPage extends BasePage {
         this.myAccountTxt = this.page.getByRole('heading', { name: 'My Account' });
     }
 
-    async login(email: string, password: string) {
+    async login(email: string, password: string): Promise<void> {
         await this.emailTxtBox.fill(email);
         await this.passwordTxtBox.fill(password);
         await this.loginBtn.click();
     }
 
-    async isLoginSuccessful() {
+    async isLoginSuccessful(): Promise<boolean> {
         return await this.myAccountTxt.isVisible();
     }
 
