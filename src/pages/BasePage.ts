@@ -9,7 +9,7 @@ export default class BasePage {
     }
 
     async navigateToApplication() {
-        await this.page.goto("https://ecommerce-playground.lambdatest.io/index.php?route=common/home");
+        await this.page.goto(`${process.env.BASE_URL}/index.php?route=common/home`);
         await this.page.waitForLoadState('domcontentloaded');
         await expect(this.page).toHaveTitle("Your Store");
     }
