@@ -2,13 +2,18 @@ import { test, expect } from '../../fixtures/pom-fixture';
 
 test.describe("Login Scenario", {}, async () => {
 
-    test("Login with valid user credentails", async ({ page, homePage, loginPage }) => {
+    test("Verify login with valid user credentails", async ({ page, homePage }) => {
+        await homePage.navigateToApplication();
+        await page.getByRole('button', { name: ' My account' }).hover();
+        expect(await page.getByRole('link', { name: 'Logout' }).isVisible()).toBeTruthy();
+        await page.waitForTimeout(3000);
+    })
 
-        await homePage.navigateToLoginModule();
-        await loginPage.login(process.env.USER_NAME!, process.env.PASSWORD!);
-
-        expect(await loginPage.verifyPageNavigation("account")).toBeTruthy();
-        expect(await loginPage.isLoginSuccessful()).toBeTruthy();
+    test("Verify MyOrder section is visible", async ({ page, homePage }) => {
+        await homePage.navigateToApplication();
+        await page.getByRole('button', { name: ' My account' }).hover();
+        expect(await page.getByRole('link', { name: 'My order' }).isVisible()).toBeTruthy();
+        await page.waitForTimeout(3000);
     })
 
 })

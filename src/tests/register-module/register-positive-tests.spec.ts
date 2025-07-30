@@ -3,7 +3,14 @@ import { faker } from '@faker-js/faker';
 
 test.describe("Register Scenario", {}, async () => {
 
-    test("Register a new user with valid credentials", async ({ page, homePage, registerPage }) => {
+    test.use({
+        storageState: {
+            cookies: [],
+            origins: []
+        }
+    });
+
+    test("Register a new user with valid credentials", async ({ homePage, registerPage }) => {
 
         await homePage.navigateToRegisterModule();
         await registerPage.enterFirstName(faker.person.firstName());
