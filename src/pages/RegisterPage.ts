@@ -35,39 +35,41 @@ export default class RegisterPage extends BasePage {
     async enterFirstName(firstName: string): Promise<void> {
         await this.page.waitForLoadState('domcontentloaded');
         expect(await this.headingTxt.isVisible()).toBeTruthy();
-        await this.firstNameTxtBox.fill(firstName);
+        await this.interaction.setTextBoxValue(this.firstNameTxtBox, 'firstNameTxtBox', firstName);
     }
 
     async enterLastName(lastName: string): Promise<void> {
-        await this.lastNameTxtBox.fill(lastName);
+        await this.interaction.setTextBoxValue(this.lastNameTxtBox, 'lastNameTxtBox', lastName);
     }
 
     async enterEmail(email: string): Promise<void> {
-        await this.emailTxtBox.fill(email);
+        await this.interaction.setTextBoxValue(this.emailTxtBox, 'emailTxtBox', email);
     }
 
     async enterMobileNumber(telephone: string): Promise<void> {
-        await this.telephoneTxtBox.fill(telephone);
+        await this.interaction.setTextBoxValue(this.telephoneTxtBox, 'telephoneTxtBox', telephone);
     }
 
     async enterPassword(password: string): Promise<void> {
-        await this.passwordTxtBox.fill(password);
+        await this.interaction.setTextBoxValue(this.passwordTxtBox, 'passwordTxtBox', password);
     }
 
     async enterConfirmPassword(confirmPassword: string): Promise<void> {
-        await this.confirmPasswordTxtBox.fill(confirmPassword);
+        await this.interaction.setTextBoxValue(this.confirmPasswordTxtBox, 'confirmPasswordTxtBox', confirmPassword);
     }
 
     async subscribeToNewsLetter(subsribe: boolean): Promise<void> {
-        subsribe ? this.subscribeBtn.click() : this.unSubscribeBtn.click();
+        subsribe
+            ? this.interaction.click(this.subscribeBtn, 'subscribeBtn')
+            : this.interaction.click(this.unSubscribeBtn, 'unSubscribeBtn');
     }
 
     async acceptPrivacyPolicy(): Promise<void> {
-        await this.policyChkBox.check();
+        await this.interaction.selectCheckbox(this.policyChkBox, 'policyChkBox');
     }
 
     async submit(): Promise<void> {
-        await this.continueBtn.click();
+        this.interaction.click(this.continueBtn, 'continueBtn');
     }
 
     async isRegistrationSuccessful(): Promise<boolean> {

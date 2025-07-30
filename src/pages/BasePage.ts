@@ -1,11 +1,15 @@
 import { Page, expect } from '@playwright/test';
+import { IInteractionService } from '../interactions/services/IInteractionService';
+import { InteractionService } from '../interactions/services/InteractionService';
 
 export default class BasePage {
 
     readonly page: Page;
+    readonly interaction: IInteractionService;
 
     constructor(page: Page) {
         this.page = page;
+        this.interaction = new InteractionService();
     }
 
     async navigateToApplication(): Promise<void> {

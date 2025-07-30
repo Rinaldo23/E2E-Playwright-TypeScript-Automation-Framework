@@ -17,9 +17,9 @@ export default class LoginPage extends BasePage {
     }
 
     async login(email: string, password: string): Promise<void> {
-        await this.emailTxtBox.fill(email);
-        await this.passwordTxtBox.fill(password);
-        await this.loginBtn.click();
+        await this.interaction.setTextBoxValue(this.emailTxtBox, 'emailTxtBox', email);
+        await this.interaction.setTextBoxValue(this.passwordTxtBox, 'passwordTxtBox', password);
+        await this.interaction.click(this.loginBtn, 'loginBtn');
     }
 
     async isLoginSuccessful(): Promise<boolean> {
