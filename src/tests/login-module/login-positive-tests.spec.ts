@@ -7,6 +7,11 @@ test.describe("Login Scenario", {}, async () => {
         await page.getByRole('button', { name: ' My account' }).hover();
         expect(await page.getByRole('link', { name: 'Logout' }).isVisible()).toBeTruthy();
         await page.waitForTimeout(3000);
+
+        await test.info().attach('screenshot', {
+            body: await page.screenshot(),
+            contentType: 'image/png',
+        });
     })
 
     test("Verify MyOrder section is visible", async ({ page, homePage }) => {
