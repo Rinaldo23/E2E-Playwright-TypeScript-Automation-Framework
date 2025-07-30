@@ -1,13 +1,7 @@
 import { Locator } from "@playwright/test";
 import { IInteractionService } from "./IInteractionService";
-import { IElementInteraction } from "../declarations/IElementInteraction";
-import { ElementInteraction } from "../implementations/ElementInteraction";
-import { IMouseInteraction } from "../declarations/IMouseInteraction";
-import { MouseInteraction } from "../implementations/MouseInteraction";
-import { ITextboxInteraction } from "../declarations/ITextboxInteraction";
-import { TextboxInteraction } from "../implementations/TextboxInteraction";
-import { ICheckboxInteraction } from "../declarations/ICheckboxInteraction";
-import { CheckboxInteraction } from "../implementations/CheckboxInteraction";
+import { IElementInteraction, IMouseInteraction, ITextboxInteraction, ICheckboxInteraction } from "../declarations";
+import { ElementInteraction, MouseInteraction, TextboxInteraction, CheckboxInteraction } from "../implementations";
 
 export class InteractionService implements IInteractionService {
 
