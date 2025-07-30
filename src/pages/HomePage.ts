@@ -16,14 +16,14 @@ export default class HomePage extends BasePage {
 
     async navigateToLoginModule(): Promise<void> {
         await this.navigateToApplication();
-        await this.myAccountBtn.hover();
-        await this.loginBtn.click();
+        await this.interaction.mouseHover(this.myAccountBtn, 'AccountBtn');
+        await this.interaction.click(this.loginBtn, 'loginBtn');
     }
 
     async navigateToRegisterModule(): Promise<void> {
         await this.navigateToApplication();
-        await this.myAccountBtn.hover();
-        await this.registerBtn.click();
+        await this.interaction.mouseHover(this.myAccountBtn, 'AccountBtn');
+        await this.interaction.click(this.registerBtn, 'registerBtn');
     }
 
     async navigateToHomeModule(): Promise<void> {
