@@ -14,8 +14,8 @@ export class ElementInteraction implements IElementInteraction {
         });
     }
 
-    async isElementPresent(element: Locator, elementName: string, callerInfo: string): Promise<boolean> {
-        return await allure.step(`[${callerInfo}] Verify "${elementName}" is present using locator - ${element}`, async () => {
+    async isElementPresent(element: Locator, elementName: string): Promise<boolean> {
+        return await allure.step(`Verify "${elementName}" is present using locator - ${element}`, async () => {
             return await element.isVisible() && element.isEnabled();
         });
     }
