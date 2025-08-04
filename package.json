@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test_dev": "cross-env ENV_NAME=dev npx playwright test",
-    "test_stg": "cross-env ENV_NAME=stg npx playwright test"
+    "test_stg": "cross-env ENV_NAME=stg npx playwright test",
+    "allure_report": "cross-env allure generate ./allure-results -o ./allure-report --clean && allure open ./allure-report"
   },
   "repository": {
     "type": "git",
