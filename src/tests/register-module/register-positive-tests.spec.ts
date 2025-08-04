@@ -25,6 +25,7 @@ test.describe("Register Scenario", {}, async () => {
 
         expect(await registerPage.verifyPageNavigation("success")).toBeTruthy();
         expect(await registerPage.isRegistrationSuccessful()).toBeTruthy();
+        expect(await registerPage.isRegistrationSuccessful()).toBeFalsy();
     })
 
 })
