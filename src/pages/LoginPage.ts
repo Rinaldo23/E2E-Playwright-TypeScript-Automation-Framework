@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import BasePage from './BasePage';
+import BasePage, { allure } from './BasePage';
 
 export default class LoginPage extends BasePage {
 
@@ -17,13 +17,17 @@ export default class LoginPage extends BasePage {
     }
 
     async login(email: string, password: string): Promise<void> {
-        await this.interaction.setTextBoxValue(this.emailTxtBox, 'emailTxtBox', email);
-        await this.interaction.setTextBoxValue(this.passwordTxtBox, 'passwordTxtBox', password);
-        await this.interaction.click(this.loginBtn, 'loginBtn');
+        await allure.step(`LOGIN TO APPLICATION`, async () => {
+            await this.interaction.setTextBoxValue(this.emailTxtBox, 'emailTxtBox', email);
+            await this.interaction.setTextBoxValue(this.passwordTxtBox, 'passwordTxtBox', password);
+            await this.interaction.click(this.loginBtn, 'loginBtn');
+        });
     }
 
     async isLoginSuccessful(): Promise<boolean> {
-        return await this.myAccountTxt.isVisible();
+        return await allure.step(`VERIFY LOGIN IS SUCCESSFUL`, async () => {
+            return await this.interaction.isElementPresent(this.myAccountTxt, "My Account Txt");
+        });
     }
 
 }
