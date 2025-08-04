@@ -4,6 +4,6 @@ export interface IElementInteraction {
 
     click(element: Locator, elementName: string, callerInfo: string): Promise<void>;
 
-    isElementPresent(element: Locator, elementName: string, callerInfo: string): Promise<boolean>;
+    isElementPresent(element: Locator, elementName: string): Promise<boolean>;
 
 }
