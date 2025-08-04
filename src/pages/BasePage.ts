@@ -1,7 +1,7 @@
 import { Page, expect } from '@playwright/test';
 import { IInteractionService } from '../interactions/services/IInteractionService';
 import { InteractionService } from '../interactions/services/InteractionService';
-import * as allure from 'allure-js-commons';
+import { logTestAction } from '../utils/AllureLogger';
 
 export default class BasePage {
 
@@ -16,7 +16,7 @@ export default class BasePage {
     }
 
     async navigateToApplication(): Promise<void> {
-        await allure.step(`NAVIGATE TO APPLICATION`, async () => {
+        await logTestAction(`NAVIGATE TO APPLICATION`, async () => {
             const baseURL = `${process.env.BASE_URL}/index.php?route=common/home`;
             await this.interaction.goToUrl(this.page, baseURL, this.className);
             await expect(this.page).toHaveTitle("Your Store");
@@ -24,10 +24,10 @@ export default class BasePage {
     }
 
     async verifyPageNavigation(urlFragment: string): Promise<boolean> {
-        return await allure.step(`VERIFY PAGE NAVIGATION`, async () => {
+        return await logTestAction(`VERIFY PAGE NAVIGATION`, async () => {
             return await this.interaction.verifyPageNavigatedToUrl(this.page, urlFragment);
         });
     }
 }
 
-export * as allure from 'allure-js-commons';
+export { logTestAction } from '../utils/AllureLogger';

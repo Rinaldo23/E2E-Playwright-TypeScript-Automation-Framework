@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import BasePage, { allure } from './BasePage';
+import BasePage, { logTestAction } from './BasePage'
 
 export default class HomePage extends BasePage {
 
@@ -15,7 +15,7 @@ export default class HomePage extends BasePage {
     }
 
     async navigateToLoginModule(): Promise<void> {
-        await allure.step(`NAVIGATE TO LOGIN PAGE`, async () => {
+        await logTestAction(`NAVIGATE TO LOGIN PAGE`, async () => {
             await this.navigateToApplication();
             await this.interaction.mouseHover(this.myAccountBtn, 'AccountBtn', this.className);
             await this.interaction.click(this.loginBtn, 'loginBtn', this.className);
@@ -23,7 +23,7 @@ export default class HomePage extends BasePage {
     }
 
     async navigateToRegisterModule(): Promise<void> {
-        await allure.step(`NAVIGATE TO REGISTER PAGE`, async () => {
+        await logTestAction(`NAVIGATE TO REGISTER PAge`, async () => {
             await this.navigateToApplication();
             await this.interaction.mouseHover(this.myAccountBtn, 'AccountBtn', this.className);
             await this.interaction.click(this.registerBtn, 'registerBtn', this.className);
@@ -31,7 +31,7 @@ export default class HomePage extends BasePage {
     }
 
     async navigateToHomeModule(): Promise<void> {
-        await allure.step(`NAVIGATE TO HOME PAGE`, async () => {
+        await logTestAction(`NAVIGATE TO HOME PAGE`, async () => {
             await this.navigateToApplication();
         });
     }

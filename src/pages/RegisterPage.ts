@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from "@playwright/test";
-import BasePage, { allure } from "./BasePage";
+import BasePage, { logTestAction } from "./BasePage";
 
 export default class RegisterPage extends BasePage {
 
@@ -33,67 +33,67 @@ export default class RegisterPage extends BasePage {
     }
 
     async enterFirstName(firstName: string): Promise<void> {
-        await allure.step(`ENTER FIRSTNAME`, async () => {
-            await this.interaction.verifyPageNavigatedToUrl(this.page, 'register', this.className);
-            expect(await this.interaction.isElementPresent(this.headingTxt, "Register Account Text", this.className)).toBeTruthy();
+        await logTestAction(`ENTER FIRSTNAME`, async () => {
+            await this.interaction.verifyPageNavigatedToUrl(this.page, 'register');
+            expect(await this.interaction.isElementPresent(this.headingTxt, "Register Account Text")).toBeTruthy();
             await this.interaction.setTextBoxValue(this.firstNameTxtBox, 'firstNameTxtBox', firstName, this.className);
         });
     }
 
     async enterLastName(lastName: string): Promise<void> {
-        await allure.step(`ENTER LASTNAME`, async () => {
+        await logTestAction(`ENTER LASTNAME`, async () => {
             await this.interaction.setTextBoxValue(this.lastNameTxtBox, 'lastNameTxtBox', lastName, this.className);
         });
     }
 
     async enterEmail(email: string): Promise<void> {
-        await allure.step(`ENTER EMAIL`, async () => {
+        await logTestAction(`ENTER EMAIL`, async () => {
             await this.interaction.setTextBoxValue(this.emailTxtBox, 'emailTxtBox', email, this.className);
         });
     }
 
     async enterMobileNumber(telephone: string): Promise<void> {
-        await allure.step(`ENTER MOBILE NUMBER`, async () => {
+        await logTestAction(`ENTER MOBILE NUMBER`, async () => {
             await this.interaction.setTextBoxValue(this.telephoneTxtBox, 'telephoneTxtBox', telephone, this.className);
         });
     }
 
     async enterPassword(password: string): Promise<void> {
-        await allure.step(`ENTER PASSWORD`, async () => {
+        await logTestAction(`ENTER PASSWORD`, async () => {
             await this.interaction.setTextBoxValue(this.passwordTxtBox, 'passwordTxtBox', password, this.className);
         });
     }
 
     async enterConfirmPassword(confirmPassword: string): Promise<void> {
-        await allure.step(`ENTER CONFIRM PASSWORD`, async () => {
+        await logTestAction(`ENTER CONFIRM PASSWORD`, async () => {
             await this.interaction.setTextBoxValue(this.confirmPasswordTxtBox, 'confirmPasswordTxtBox', confirmPassword, this.className);
         });
     }
 
     async subscribeToNewsLetter(subsribe: boolean): Promise<void> {
         subsribe
-            ? await allure.step(`SUBSCRIBE TO NEWSLETTER`, async () => {
+            ? await logTestAction(`SUBSCRIBE TO NEWSLETTER`, async () => {
                 await this.interaction.click(this.subscribeBtn, 'subscribeBtn', this.className);
             })
-            : await allure.step(`UNSUBSCRIBE TO NEWSLETTER`, async () => {
+            : await logTestAction(`UNSUBSCRIBE TO NEWSLETTER`, async () => {
                 await this.interaction.click(this.unSubscribeBtn, 'unSubscribeBtn', this.className);
             });
     }
 
     async acceptPrivacyPolicy(): Promise<void> {
-        await allure.step(`ACCEPT PRIVACY POLICY`, async () => {
+        await logTestAction(`ACCEPT PRIVACY POLICY`, async () => {
             await this.interaction.selectCheckbox(this.policyChkBox, 'policyChkBox', this.className);
         });
     }
 
     async submit(): Promise<void> {
-        await allure.step(`CLICK ON SUBMIT`, async () => {
+        await logTestAction(`CLICK ON SUBMIT`, async () => {
             await this.interaction.click(this.submitBtn, 'submitBtn', this.className);
         });
     }
 
     async isRegistrationSuccessful(): Promise<boolean> {
-        return await allure.step(`ENTER EMAIL`, async () => {
+        return await logTestAction(`VERIFY REGISTRATION IS SUCCESSFUL`, async () => {
             return await this.interaction.isElementPresent(this.successTxt, "Your Account Has Been Created Txt");
         });
     }
