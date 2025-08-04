@@ -18,9 +18,9 @@ export default class LoginPage extends BasePage {
 
     async login(email: string, password: string): Promise<void> {
         await allure.step(`LOGIN TO APPLICATION`, async () => {
-            await this.interaction.setTextBoxValue(this.emailTxtBox, 'emailTxtBox', email);
-            await this.interaction.setTextBoxValue(this.passwordTxtBox, 'passwordTxtBox', password);
-            await this.interaction.click(this.loginBtn, 'loginBtn');
+            await this.interaction.setTextBoxValue(this.emailTxtBox, 'emailTxtBox', email, this.className);
+            await this.interaction.setTextBoxValue(this.passwordTxtBox, 'passwordTxtBox', password, this.className);
+            await this.interaction.click(this.loginBtn, 'loginBtn', this.className);
         });
     }
 

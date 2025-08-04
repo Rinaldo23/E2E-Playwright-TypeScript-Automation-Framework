@@ -17,16 +17,16 @@ export default class HomePage extends BasePage {
     async navigateToLoginModule(): Promise<void> {
         await allure.step(`NAVIGATE TO LOGIN PAGE`, async () => {
             await this.navigateToApplication();
-            await this.interaction.mouseHover(this.myAccountBtn, 'AccountBtn');
-            await this.interaction.click(this.loginBtn, 'loginBtn');
+            await this.interaction.mouseHover(this.myAccountBtn, 'AccountBtn', this.className);
+            await this.interaction.click(this.loginBtn, 'loginBtn', this.className);
         });
     }
 
     async navigateToRegisterModule(): Promise<void> {
         await allure.step(`NAVIGATE TO REGISTER PAGE`, async () => {
             await this.navigateToApplication();
-            await this.interaction.mouseHover(this.myAccountBtn, 'AccountBtn');
-            await this.interaction.click(this.registerBtn, 'registerBtn');
+            await this.interaction.mouseHover(this.myAccountBtn, 'AccountBtn', this.className);
+            await this.interaction.click(this.registerBtn, 'registerBtn', this.className);
         });
     }
 
