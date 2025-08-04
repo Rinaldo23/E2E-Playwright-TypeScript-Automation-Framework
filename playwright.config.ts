@@ -32,24 +32,25 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html', { open: 'on-failure' }],
-    ['allure-playwright', { detail: false }]
+    ['allure-playwright', { detail: false }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  timeout: 60000,
+  timeout: 30000,
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     // trace: 'on-first-retry',
-    headless: false
+    headless: true
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'setup',
-      testMatch: /.*\-setup\.ts/
+      // testMatch: /.*\-setup\.ts/
+      testMatch: 'global-auth-setup.ts'
     },
     {
       name: 'chromium',
