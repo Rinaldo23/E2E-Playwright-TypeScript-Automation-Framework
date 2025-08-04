@@ -19,35 +19,35 @@ export class InteractionService implements IInteractionService {
         this.checkboxInteraction = new CheckboxInteraction();
     }
 
-    async goToUrl(page: Page, url: string): Promise<void> {
-        await this.pageInteraction.goToUrl(page, url);
+    async goToUrl(page: Page, url: string, callerInfo: string): Promise<void> {
+        await this.pageInteraction.goToUrl(page, url, callerInfo);
     }
 
-    async verifyPageNavigatedToUrl(page: Page, endPoint: string): Promise<boolean> {
-        return await this.pageInteraction.verifyPageNavigatedToUrl(page, endPoint);
+    async verifyPageNavigatedToUrl(page: Page, endPoint: string, callerInfo: string): Promise<boolean> {
+        return await this.pageInteraction.verifyPageNavigatedToUrl(page, endPoint, callerInfo);
     }
 
-    async click(element: Locator, elementName: string): Promise<void> {
-        await this.elementInteraction.click(element, elementName);
+    async click(element: Locator, elementName: string, callerInfo: string): Promise<void> {
+        await this.elementInteraction.click(element, elementName, callerInfo);
     }
 
-    async isElementPresent(element: Locator, elementName: string): Promise<boolean> {
-        return await this.elementInteraction.isElementPresent(element, elementName);
+    async isElementPresent(element: Locator, elementName: string, callerInfo: string): Promise<boolean> {
+        return await this.elementInteraction.isElementPresent(element, elementName, callerInfo);
     }
 
-    async mouseHover(element: Locator, elementName: string): Promise<void> {
-        await this.mouseInteraction.mouseHover(element, elementName);
+    async mouseHover(element: Locator, elementName: string, callerInfo: string): Promise<void> {
+        await this.mouseInteraction.mouseHover(element, elementName, callerInfo);
     }
 
-    async setTextBoxValue(element: Locator, elementName: string, value: string): Promise<void> {
-        await this.textboxInteraction.setTextBoxValue(element, elementName, value);
+    async setTextBoxValue(element: Locator, elementName: string, value: string, callerInfo: string): Promise<void> {
+        await this.textboxInteraction.setTextBoxValue(element, elementName, value, callerInfo);
     }
 
-    async selectCheckbox(element: Locator, elementName: string): Promise<void> {
-        await this.checkboxInteraction.selectCheckbox(element, elementName);
+    async selectCheckbox(element: Locator, elementName: string, callerInfo: string): Promise<void> {
+        await this.checkboxInteraction.selectCheckbox(element, elementName, callerInfo);
     }
 
-    async unSelectCheckbox(element: Locator, elementName: string): Promise<void> {
-        await this.checkboxInteraction.unSelectCheckbox(element, elementName);
+    async unSelectCheckbox(element: Locator, elementName: string, callerInfo: string): Promise<void> {
+        await this.checkboxInteraction.unSelectCheckbox(element, elementName, callerInfo);
     }
 }

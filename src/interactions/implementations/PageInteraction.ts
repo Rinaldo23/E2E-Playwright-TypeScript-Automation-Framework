@@ -4,8 +4,8 @@ import { IPageInteraction } from "../declarations/IPageInteraction";
 
 export class PageInteraction implements IPageInteraction {
 
-    async goToUrl(page: Page, url: string): Promise<void> {
-        await allure.step(`Go to url "${url}"`, async () => {
+    async goToUrl(page: Page, url: string, callerInfo: string): Promise<void> {
+        await allure.step(`[${callerInfo}] Go to url "${url}"`, async () => {
             try {
                 await page.goto(url, { waitUntil: "load" });
             } catch (error) {
@@ -14,7 +14,7 @@ export class PageInteraction implements IPageInteraction {
         });
     }
 
-    async verifyPageNavigatedToUrl(page: Page, endPoint: string): Promise<boolean> {
+    async verifyPageNavigatedToUrl(page: Page, endPoint: string, callerInfo: string): Promise<boolean> {
         return await allure.step(`Verify page navigated to "${endPoint}" endpoint`, async () => {
             await page.waitForURL(`**/${endPoint}`, { waitUntil: "load" });
             return page.url().includes(endPoint);

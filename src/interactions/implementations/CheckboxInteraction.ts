@@ -4,8 +4,8 @@ import * as allure from 'allure-js-commons';
 
 export class CheckboxInteraction implements ICheckboxInteraction {
 
-    async selectCheckbox(element: Locator, elementName: string): Promise<void> {
-        await allure.step(`Checked "${elementName}" using locator - ${element}`, async () => {
+    async selectCheckbox(element: Locator, elementName: string, callerInfo: string): Promise<void> {
+        await allure.step(`[${callerInfo}] Checked "${elementName}" using locator - ${element}`, async () => {
             try {
                 await element.check();
             } catch (error) {
@@ -14,8 +14,8 @@ export class CheckboxInteraction implements ICheckboxInteraction {
         });
     }
 
-    async unSelectCheckbox(element: Locator, elementName: string): Promise<void> {
-        await allure.step(`Unchecked "${elementName}" using locator - ${element}`, async () => {
+    async unSelectCheckbox(element: Locator, elementName: string, callerInfo: string): Promise<void> {
+        await allure.step(`[${callerInfo}] Unchecked "${elementName}" using locator - ${element}`, async () => {
             try {
                 await element.uncheck();
             } catch (error) {
