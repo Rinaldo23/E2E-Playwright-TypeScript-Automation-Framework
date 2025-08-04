@@ -2,8 +2,8 @@ import { Locator } from '@playwright/test';
 
 export interface IElementInteraction {
 
-    click(element: Locator, elementName: string): Promise<void>;
+    click(element: Locator, elementName: string, callerInfo: string): Promise<void>;
 
-    isElementPresent(element: Locator, elementName: string): Promise<boolean>;
+    isElementPresent(element: Locator, elementName: string, callerInfo: string): Promise<boolean>;
 
 }

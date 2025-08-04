@@ -4,8 +4,8 @@ import * as allure from 'allure-js-commons';
 
 export class MouseInteraction implements IMouseInteraction {
 
-    async mouseHover(element: Locator, elementName: string): Promise<void> {
-        await allure.step(`Mouse hovered on "${elementName}" using locator - ${element}`, async () => {
+    async mouseHover(element: Locator, elementName: string, callerInfo: string): Promise<void> {
+        await allure.step(`[${callerInfo}] Mouse hovered on "${elementName}" using locator - ${element}`, async () => {
             try {
                 await element.hover();
             } catch (error) {
