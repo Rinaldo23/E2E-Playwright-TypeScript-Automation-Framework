@@ -10,7 +10,7 @@ test.describe("Register Scenario", {}, async () => {
         }
     });
 
-    test("Register a new user with valid credentials", async ({ homePage, registerPage }) => {
+    test("Register a new user with valid credentials", async ({ homePage, registerPage, assert }) => {
 
         await homePage.navigateToRegisterModule();
         await registerPage.enterFirstName(faker.person.firstName());
@@ -23,9 +23,9 @@ test.describe("Register Scenario", {}, async () => {
         await registerPage.acceptPrivacyPolicy();
         await registerPage.submit();
 
-        expect(await registerPage.verifyPageNavigation("success")).toBeTruthy();
-        expect(await registerPage.isRegistrationSuccessful()).toBeTruthy();
-        expect(await registerPage.isRegistrationSuccessful()).toBeFalsy();
+        await assert.assertTrue(await registerPage.verifyPageNavigation("success"), "Page navigated to success page.");
+        await assert.assertTrue(await registerPage.isRegistrationSuccessful(), "Registeration is Successful.");
+        await assert.assertFalse(await registerPage.isRegistrationSuccessful(), "Registeration is not Successful.");
     })
 
 })

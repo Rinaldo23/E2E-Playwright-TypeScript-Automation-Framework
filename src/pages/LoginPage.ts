@@ -25,9 +25,10 @@ export default class LoginPage extends BasePage {
     }
 
     async isLoginSuccessful(): Promise<boolean> {
-        return await logTestAction(`VERIFY LOGIN IS SUCCESSFUL`, async () => {
-            return await this.interaction.isElementPresent(this.myAccountTxt, "My Account Txt");
-        });
+        // return await logTestAction(`VERIFY LOGIN IS SUCCESSFUL`, async () => {
+        //     return await this.interaction.isElementPresent(this.myAccountTxt, "My Account Txt");
+        // });
+        return await this.interaction.isElementPresent(this.myAccountTxt, "My Account Txt");
     }
 
 }

@@ -27,9 +27,10 @@ export default class BasePage {
     }
 
     async verifyPageNavigation(urlFragment: string): Promise<boolean> {
-        return await logTestAction(`VERIFY PAGE NAVIGATION`, async () => {
-            return await this.interaction.verifyPageNavigatedToUrl(this.page, urlFragment);
-        });
+        // return await logTestAction(`VERIFY PAGE NAVIGATION`, async () => {
+        //     return await this.interaction.verifyPageNavigatedToUrl(this.page, urlFragment);
+        // });
+        return await this.interaction.verifyPageNavigatedToUrl(this.page, urlFragment);
     }
 }
 
