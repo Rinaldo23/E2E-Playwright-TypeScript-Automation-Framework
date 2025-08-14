@@ -93,9 +93,10 @@ export default class RegisterPage extends BasePage {
     }
 
     async isRegistrationSuccessful(): Promise<boolean> {
-        return await logTestAction(`VERIFY REGISTRATION IS SUCCESSFUL`, async () => {
-            return await this.interaction.isElementPresent(this.successTxt, "Your Account Has Been Created Txt");
-        });
+        // return await logTestAction(`VERIFY REGISTRATION IS SUCCESSFUL`, async () => {
+        //     return await this.interaction.isElementPresent(this.successTxt, "Your Account Has Been Created Txt");
+        // });
+        return await this.interaction.isElementPresent(this.successTxt, "Your Account Has Been Created Txt");
     }
 
 }
