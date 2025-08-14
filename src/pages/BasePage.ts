@@ -16,11 +16,14 @@ export default class BasePage {
     }
 
     async navigateToApplication(): Promise<void> {
-        await logTestAction(`NAVIGATE TO APPLICATION`, async () => {
-            const baseURL = `${process.env.BASE_URL}/index.php?route=common/home`;
-            await this.interaction.goToUrl(this.page, baseURL, this.className);
-            await expect(this.page).toHaveTitle("Your Store");
-        });
+        // await logTestAction(`NAVIGATE TO APPLICATION`, async () => {
+        //     const baseURL = `${process.env.BASE_URL}/index.php?route=common/home`;
+        //     await this.interaction.goToUrl(this.page, baseURL, this.className);
+        //     await expect(this.page).toHaveTitle("Your Store");
+        // });
+        const baseURL = `${process.env.BASE_URL}/index.php?route=common/home`;
+        await this.interaction.goToUrl(this.page, baseURL, this.className);
+        await expect(this.page).toHaveTitle("Your Store");
     }
 
     async verifyPageNavigation(urlFragment: string): Promise<boolean> {
